@@ -4,38 +4,56 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+
+import com.hemebiotech.ISymptomWriter;
 
 public class AnalyticsCounter {
-	// public static void main(String args[]) throws Exception {
-		// // first get input
-		// BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
-		// String line = reader.readLine();
+	private ISymptomReader reader;
+    private ISymptomWriter writer;
 
-		// int i = 0;	// set i to 0
-		// int headCount = 0;	// counts headaches
-		// while (line != null) {
-		// 	i++;	// increment i
-		// 	System.out.println("symptom from file: " +  line);
-		// 	if (line.equals("headache")) {
-		// 		headCount++;
-		// 		System.out.println("number of headaches: " + headCount);
-		// 	}
-		// 	else if (line.equals("rush")) {
-		// 		rashCount++;
-		// 	}
-		// 	else if (line.contains("pupils")) {
-		// 		pupilCount++;
-		// 	}
-			
-		// 	// nombre d'occurences 
+    public AnalyticsCounter(ISymptomReader reader, ISymptomWriter writer) {
+        this.reader = reader;
+        this.writer = writer;
+    }
 
-		// 	line = reader.readLine();	// get another symptom
-		// } 
-		// reader.close(); 
 
-		public class SymptomCounter {
-    		public static void main(String[] args) throws Exception {
+	public List<String> getSymptoms() {
+	return reader.readSymptoms();
+}
+
+public Map<String, Integer> countSymptoms(List<String> symptoms) {
+    Map<String, Integer> symptomCounts = new HashMap<>();
+
+    for (String symptom : symptoms) {
+        if (symptomCounts.containsKey(symptom)) {
+            int count = symptomCounts.get(symptom) + 1;
+            symptomCounts.put(symptom, count);
+        } else {
+            symptomCounts.put(symptom, 1);
+        }
+    }
+
+    return symptomCounts;
+}
+
+public Map<String, Integer> sortSymptoms(Map<String, Integer> symptoms) {
+    return symptoms.entrySet().stream()
+            .sorted((o1, o2) -> o1.getKey().compareTo(o2.getKey()))
+            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+}
+
+public void writeSymptoms(Map<String, Integer> symptoms) {
+    for (Map.Entry<String, Integer> entry : symptoms.entrySet()) {
+        writer.writeSymptom(entry.getKey(), entry.getValue());
+    }
+}
+
+public class SymptomCounter {
+    public static void main(String[] args) throws Exception {
         // Create a map to store the symptom categories and their counts
         Map<String, Integer> symptomCounts = new HashMap<>();
 	
@@ -72,23 +90,12 @@ public class AnalyticsCounter {
 		}
 	}
 
+}
 
-    // // Helper method to get the category for a symptom
-    // private static String getCategory(String symptom) {
-    //     // You can add more categories as needed
-    //     if (symptom.contains("flashback") || symptom.contains("memory") || symptom.contains("dream")) {
-    //         return "Re-experiencing symptoms";
-    //     } else if (symptom.contains("avoid") || symptom.contains("stay away")) {
-    //         return "Avoidance symptoms";
-    //     } else if (symptom.contains("startle") || symptom.contains("tense") || symptom.contains("irritable")) {
-    //         return "Arousal and reactivity symptoms";
-    //     } else {
-    //         return "Cognition and mood symptoms";
-    //     }
-    // }
+
 
 
 
 		
 	
-}
+

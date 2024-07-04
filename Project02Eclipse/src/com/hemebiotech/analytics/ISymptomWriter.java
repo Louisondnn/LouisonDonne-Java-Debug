@@ -9,5 +9,7 @@ public interface ISymptomWriter {
      * @param symptoms A map of symptoms where the key is the symptom name and the value is the count of occurrences.
      */
    
-public void writeSymptoms(Map<String, Integer> symptoms); 
+public void writeSymptoms(Map<String, Integer> symptoms);
+
+    public void writeSymptom(String key, Integer value); 
 }

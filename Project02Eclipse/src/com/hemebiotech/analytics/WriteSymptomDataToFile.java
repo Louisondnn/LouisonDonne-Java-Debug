@@ -1,3 +1,6 @@
+package com.hemebiotech.analytics;
+
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
@@ -6,8 +9,20 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import com.hemebiotech.ISymptomWriter;
+
 public class WriteSymptomDataToFile implements ISymptomWriter {
   
+
+    private String filepath;
+	
+	/**
+	 * 
+	 * @param filepath a full or partial path to file with symptom strings in it, one per line
+	 */
+	public WriteSymptomDataToFile (String filepath) {
+		this.filepath = filepath;
+	}
     /**
      * Writes symptoms to a file.
      * 

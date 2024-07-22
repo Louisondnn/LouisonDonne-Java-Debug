@@ -57,38 +57,6 @@ public class AnalyticsCounter {
 	}
 
 }
-	  // Instanciation 
-
-// 	  ReadSymptomDataFromFile symptomReader = new ReadSymptomDataFromFile( "symptoms.txt");
-// 	  WriteSymptomDataToFile symptomWriter = new WriteSymptomDataToFile("result.out");
-
-// 	  // Exécution des traitements dans le bon ordre
-// 	  System.out.println();
-// 	  ((ISymptomReader) symptomReader).readSymptoms();
-// 	  ((Object) symptomReader).symptomCounter();
-// 	  ((Object) symptomReader).symptomCounter();
-  
-//   List<String> symptoms = symptomReader.readSymptoms();
-// // 	  symptomWriter.writeSymptoms(symptoms);
-// // 	  symptomWriter.countSymptoms(symptoms);
-// // 	  symptomWriter.sortSymptoms(symptomCounts);
-
-// 	  Map<String, Integer> symptomCounts = symptomWriter.countSymptoms(symptoms);
-// 	  symptomCounts = symptomWriter.sortSymptoms(symptomCounts);
-// 	  symptomWriter.writeSymptoms(symptomCounts);
-	  
-// 	  List<String> symptoms = readSymptomData.getSymptoms();
-// 	  // compter les symptomes
-
-// 	  HashMap<String, Integer> symptomsAnalytics = readSymptomData.countSymptoms();
-
-//   }
-
-
-
-
-
-// }
 
 
 

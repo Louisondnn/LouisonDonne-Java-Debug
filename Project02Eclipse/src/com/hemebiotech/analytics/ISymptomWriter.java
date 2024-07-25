@@ -1,8 +1,10 @@
-package com.hemebiotech;
+package com.hemebiotech.analytics;
 
 import java.util.Map;
 
 public interface ISymptomWriter {
+    Object countSymptoms = null;
+
     /**
      * Writes symptoms to a destination, such as a file or database.
      * 
@@ -11,5 +13,7 @@ public interface ISymptomWriter {
    
 public void writeSymptoms(Map<String, Integer> symptoms);
 
-    public void writeSymptom(String key, Integer value); 
+    public void writeSymptom(String key, Integer value);
+
+    public void countSymptoms(); 
 }

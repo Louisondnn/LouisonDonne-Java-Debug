@@ -15,5 +15,6 @@ public void writeSymptoms(Map<String, Integer> symptoms);
 
     public void writeSymptom(String key, Integer value);
 
-    public void countSymptoms(); 
+    
+   
 }

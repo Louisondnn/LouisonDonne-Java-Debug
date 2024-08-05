@@ -1,23 +1,100 @@
-anxiety: 5: 1
-arrhythmias: 3: 1
-blindness: 1: 1
-blurred vision: 5: 1
-constricted pupils: 3: 1
-cough: 6: 1
-dialated pupils: 4: 1
-dizziness: 5: 1
-dry mouth: 8: 1
-fever: 7: 1
-headache: 3: 1
-high blood pressure: 10: 1
-inflamation: 7: 1
-insomnia: 4: 1
-low blood pressure: 4: 1
-nausea: 5: 1
-rapid heart rate: 1: 1
-rash: 4: 1
-shortness of breath: 3: 1
-stiff neck: 4: 1
-stomach pain: 3: 1
-tremor: 4: 1
-water retention: 1: 1
+fever
+dialated pupils
+dry mouth
+inflamation
+tremor
+stomach pain
+high blood pressure
+stiff neck
+cough
+insomnia
+headache
+insomnia
+constricted pupils
+nausea
+cough
+shortness of breath
+blurred vision
+dizziness
+low blood pressure
+dry mouth
+tremor
+dry mouth
+arrhythmias
+stomach pain
+anxiety
+dizziness
+water retention
+fever
+low blood pressure
+inflamation
+inflamation
+anxiety
+cough
+inflamation
+nausea
+stiff neck
+nausea
+high blood pressure
+inflamation
+dry mouth
+shortness of breath
+headache
+blindness
+dry mouth
+tremor
+stomach pain
+headache
+anxiety
+nausea
+dry mouth
+high blood pressure
+rapid heart rate
+high blood pressure
+high blood pressure
+blurred vision
+nausea
+shortness of breath
+fever
+insomnia
+dizziness
+dizziness
+high blood pressure
+dialated pupils
+rash
+rash
+insomnia
+dry mouth
+constricted pupils
+blurred vision
+high blood pressure
+low blood pressure
+dialated pupils
+high blood pressure
+tremor
+high blood pressure
+arrhythmias
+fever
+constricted pupils
+cough
+stiff neck
+inflamation
+blurred vision
+fever
+dizziness
+arrhythmias
+rash
+rash
+fever
+dry mouth
+fever
+high blood pressure
+stiff neck
+dialated pupils
+cough
+inflamation
+low blood pressure
+anxiety
+anxiety
+cough
+blurred vision

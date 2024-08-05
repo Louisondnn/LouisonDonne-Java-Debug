@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 public class WriteSymptomDataToFile implements ISymptomWriter {
@@ -16,16 +17,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
      * @param symptoms A map of symptoms where the key is the symptom name and the value is the count of occurrences.
      */
     
-    public void writeSymptoms(Map<String, Integer> symptoms) {
-        try (FileWriter writer = new FileWriter("symptoms.txt")) {
-            for (Map.Entry<String, Integer> entry : symptoms.entrySet()) {
-                writer.write(entry.getKey() + ": " + entry.getValue() + "\n");
-            }
-        } catch (IOException e) {
-            System.err.println("Error writing to file: " + e.getMessage());
-        }
-    }
-    
+  
 public Map<String, Integer> countSymptoms(List<String> symptoms) {
     Map<String, Integer> symptomCounts = new HashMap<>();
 
@@ -37,27 +29,28 @@ public Map<String, Integer> countSymptoms(List<String> symptoms) {
             symptomCounts.put(symptom, 1);
         }
     }
-
     return symptomCounts;
 }
-
-public Map<String, Integer> sortSymptoms(Map<String, Integer> symptoms) {
+public Map<String, Integer> sortSymptoms(Map<String, Integer> symptoms) throws IOException {
+    // FileWriter resulFile = new FileWriter("result.out");
     return symptoms.entrySet().stream()
             .sorted((o1, o2) -> o1.getKey().compareTo(o2.getKey()))
             .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
-}
 
+        }
+public void writeSymptoms(Map<String, Integer> symptoms) {
+    try (FileWriter writer = new FileWriter("result.out")) {
+        for (Map.Entry<String, Integer> entry : symptoms.entrySet()) {
+            writer.write(entry.getKey() + ": " + entry.getValue() + "\n");
+        }
+    } catch (IOException e) {
+        System.err.println("Error writing to file: " + e.getMessage());
+    }
+}
 @Override
 public void writeSymptom(String key, Integer value) {
     // TODO Auto-generated method stub
     throw new UnsupportedOperationException("Unimplemented method 'writeSymptom'");
 }
-
-@Override
-public void countSymptoms() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'countSymptoms'");
 }
-    }
-    
 
